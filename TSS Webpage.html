@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TheYahoo Smart Solutions | IT Services & Hardware Sales</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #0f2027, #020617 70%);
+      color: #e5e7eb;
+      overflow-x: hidden;
+    }
+    header {
+      background: rgba(2,6,23,0.85);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: #c7d2fe;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #020617, #0b3c5d, #7c3aed);
+      color: #fff;
+      padding: 120px 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+    canvas#network {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h2 { font-size: 38px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; color: #e0e7ff; }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: linear-gradient(135deg, #22d3ee, #a855f7);
+      color: #020617;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+    section {
+      padding: 70px 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .services, .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: linear-gradient(180deg, #020617, #020617cc);
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid #1e293b;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      padding: 30px 40px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><img src="TheYahoo.png" alt="TheYahoo Smart Solutions" style="height:40px;vertical-align:middle;"></h1>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#products">Hardware</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero"><canvas id="network"></canvas><div class="hero-content">
+  <img src="TheYahoo.png" alt="TheYahoo Smart Solutions Logo" style="max-width:260px;width:100%;margin-bottom:30px;filter: drop-shadow(0 0 25px rgba(124,58,237,0.6));">
+  <h2>Complete IT Services & Hardware Solutions</h2>
+  <p>Reliable IT support, networking, security, and genuine hardware parts for your business.</p>
+  <a href="#contact" class="btn">Get a Quote</a>
+</div></div>
+
+<section id="services">
+  <div class="section-title">
+    <h2>Our IT Services</h2>
+    <p>Professional support for businesses of all sizes</p>
+  </div>
+  <div class="services">
+    <div class="card">
+      <h3>IT Support & AMC</h3>
+      <p>Onsite and remote IT support, annual maintenance contracts, and quick issue resolution.</p>
+    </div>
+    <div class="card">
+      <h3>Network Setup & Security</h3>
+      <p>LAN/WAN, WiFi, firewall, CCTV, and network security solutions.</p>
+    </div>
+    <div class="card">
+      <h3>Server & Cloud Services</h3>
+      <p>Server installation, backup solutions, Microsoft 365, and cloud support.</p>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="section-title">
+    <h2>Hardware & Spare Parts</h2>
+    <p>Original and reliable IT hardware products</p>
+  </div>
+  <div class="products">
+    <div class="card">
+      <h3>Laptops & Desktops</h3>
+      <p>Business and personal systems from leading brands.</p>
+    </div>
+    <div class="card">
+      <h3>Networking Equipment</h3>
+      <p>Routers, switches, access points, and structured cabling.</p>
+    </div>
+    <div class="card">
+      <h3>UPS & Accessories</h3>
+      <p>UPS systems, batteries, monitors, printers, and spare parts.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-title">
+    <h2>Contact Us</h2>
+    <p>Let’s discuss your IT requirements</p>
+  </div>
+  <div class="card">
+    <p><strong>Email:</strong> tss@theyahoo.in</p>
+    <p><strong>Phone:</strong> +91 9XXXXXXXXX</p>
+    <p><strong>Address:</strong> Valleeswaran Garden, R A Puram, Chennai, Tamil Nadu 600028, India</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 TheYahoo Smart Solutions. All Rights Reserved.</p>
+  <p>IT Services | Networking | Hardware Sales</p>
+</footer>
+
+<script>
+const canvas = document.getElementById('network');
+const ctx = canvas.getContext('2d');
+let w, h, points;
+function resize(){ w = canvas.width = window.innerWidth; h = canvas.height = document.querySelector('.hero').offsetHeight; }
+window.addEventListener('resize', resize);
+resize();
+points = Array.from({length: 70}, () => ({ x: Math.random()*w, y: Math.random()*h, vx:(Math.random()-0.5)*0.5, vy:(Math.random()-0.5)*0.5 }));
+function draw(){ ctx.clearRect(0,0,w,h); for(let p of points){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>w) p.vx*=-1; if(p.y<0||p.y>h) p.vy*=-1; ctx.beginPath(); ctx.arc(p.x,p.y,2,0,Math.PI*2); ctx.fillStyle='#7dd3fc'; ctx.fill(); for(let q of points){ const d=Math.hypot(p.x-q.x,p.y-q.y); if(d<120){ ctx.strokeStyle='rgba(124,58,237,'+(1-d/120)+')'; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke(); } } } requestAnimationFrame(draw); }
+draw();
+</script>
+</body>
+</html>
